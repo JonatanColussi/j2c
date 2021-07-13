@@ -157,7 +157,8 @@ const command = {
       token: clockifyToken.trim(),
       workspace: workspace.trim(),
       project: clockifyProjectDefault.trim(),
-      task: clockifyTaskDefault.trim()
+      task: clockifyTaskDefault.trim(),
+      userId: clockifyUserData.id
     }
 
     filesystem.write(
