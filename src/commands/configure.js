@@ -128,7 +128,7 @@ const command = {
       p => p.name === clockifyProjectNameDefault
     ).id
 
-    const spinnerTasks = print.spin('Loading Clockify projects')
+    const spinnerTasks = print.spin('Loading Clockify tasks')
 
     const { ok: clockifyTasksOk, data: clockifyTasksData } = await api.get(
       `/workspaces/${workspace}/projects/${clockifyProjectDefault}/tasks`
