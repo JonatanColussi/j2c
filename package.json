@@ -2,7 +2,8 @@
   "name": "j2c",
   "version": "0.0.1",
   "description": "j2c CLI",
-  "private": true,
+  "private": false,
+  "preferGlobal": true,
   "bin": {
     "j2c": "bin/j2c"
   },
