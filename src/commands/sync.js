@@ -127,21 +127,29 @@ module.exports = {
             if (ok) {
               inserteds.push({
                 description: jiraHour.issueSummary,
-                date: format(start, 'dd/MM/yyyy'),
-                start: format(start, 'kk:mm'),
-                end: format(end, 'kk:mm')
+                start,
+                end
               })
               countInserted++
             }
           }
         }
 
+        const insertedData = [...inserteds]
+          .sort((a, b) => a.start.getTime() - b.start.getTime())
+          .map(r => ({
+            ...r,
+            date: format(r.start, 'dd/MM/yyyy'),
+            start: format(r.start, 'kk:mm'),
+            end: format(r.end, 'kk:mm')
+          }))
+
         spinnerInsertClockify.succeed(`${countInserted} times inserted`)
         if (countInserted > 0) {
           print.table(
             [
-              Object.keys(inserteds[0]),
-              ...inserteds.map(i => Object.values(i))
+              Object.keys(insertedData[0]),
+              ...insertedData.map(i => Object.values(i))
             ],
             { format: 'markdown' }
           )
