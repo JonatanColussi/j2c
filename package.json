@@ -1,6 +1,6 @@
 {
   "name": "j2c",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "j2c CLI",
   "private": false,
   "preferGlobal": true,
